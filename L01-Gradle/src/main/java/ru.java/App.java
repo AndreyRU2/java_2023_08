@@ -5,8 +5,7 @@ package ru.java;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -25,12 +24,24 @@ import java.util.List;
 public class App {
     public static void main(String... args) {
         List<Integer> example = new ArrayList<>();
-        int min = 0;
-        int max = 100;
-        for (int i = min; i < max; i++) {
-            example.add(i);
+        Set<Integer> wSort = new TreeSet<>();
+
+        Random rnd = new Random();
+
+        for (int i = 0; i < 100; i++) {
+            example.add(rnd.nextInt((100)));
         }
 
-        System.out.println(Lists.reverse(example));
+        for (int i : example) {
+            wSort.add(i);
+        }
+
+        Set<Integer> woDubls = new HashSet<>(example);
+        Integer[] arr = example.toArray(new Integer[0]);
+
+        System.out.println("Current set: " + Arrays.toString(arr));
+        System.out.println("Filtered set: " + woDubls);
+        System.out.println("Sorted set: " + wSort);
+
     }
 }
